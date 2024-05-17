@@ -144,8 +144,8 @@ public class BookingManagementRunner implements CommandLineRunner {
         bookingService.saveBooking(booking2);
         bookingService.saveBooking(booking3);
 
-        log.info("Deleting some instances from Building, WorkStation, User and Booking:");
-
+//        log.info("Deleting some instances from Building, WorkStation, User and Booking:");
+//
 //        List<WorkStation> workStationsToDelete = workStationService.findWorkStationByBuilding(building2);
 //        for (WorkStation workStation : workStationsToDelete) {
 //            workStationService.deleteWorkStation(workStation.getId());
@@ -154,6 +154,37 @@ public class BookingManagementRunner implements CommandLineRunner {
 //
 //        bookingService.deleteBooking(booking3.getId());
 //        userService.deleteUser("alice_lazzeri");
+
+        log.info("Finding some instances from Building, WorkStation, User and Booking by primary key:");
+
+        Building foundBuilding = buildingService.findBuildingById(building1.getId());
+        log.info("Building1 name: {}", foundBuilding.getBuildingName());
+        log.info("Building1 ID: {}", foundBuilding.getId());
+
+        WorkStation foundWorkStation = workStationService.findWorkStationById(workStation3.getId());
+        log.info("WorkStation3 name: {}", foundWorkStation.getDescription());
+        log.info("WorkStation3 ID: {}", foundWorkStation.getId());
+
+        User foundUser = userService.findUserByUsername(user2.getUsername());
+        log.info("User2 name: {}", foundUser.getFullName());
+        log.info("User2 ID: {}", foundUser.getUsername());
+
+//        Booking foundBooking = bookingService.findBookingById(booking1.getId());
+//        log.info("Booking1 ID: {}", foundBooking.getId());
+
+        log.info("Testing query from method findWorkStationsByWorkStationTypeAndCity(): ");
+
+        WorkStationType researchedWorkStationType = WorkStationType.OPEN_SPACE;
+        String researchedCity = "Milan, Italy";
+
+        List<WorkStation> foundWorkStationsByWorkStationTypeAndCity = workStationService.findWorkStationsByWorkStationTypeAndCity(researchedWorkStationType, researchedCity);
+        for (WorkStation workStation : foundWorkStationsByWorkStationTypeAndCity) {
+            log.info("Workstation3 with ID {} work station type: {}", workStation.getId(), researchedWorkStationType);
+            log.info("Building3 (joined with workStation3) city: {}", researchedCity);
+        }
+
+
+
 
     }
 }
