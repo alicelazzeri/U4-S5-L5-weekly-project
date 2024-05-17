@@ -42,6 +42,7 @@ public class U4S5L5WeeklyProjectApplicationTests {
 
 	@Test
 	public void testFindUserByUsername() {
+
 		String expectedUsername = "alice_lazzeri";
 		User user = userService.findUserByUsername(expectedUsername);
 		assertEquals(expectedUsername, user.getUsername());
@@ -49,6 +50,7 @@ public class U4S5L5WeeklyProjectApplicationTests {
 
 	@Test
 	public void testDeleteWorkStation() {
+
 		Building building = Building.builder()
 				.withBuildingName("Prova building name")
 				.withCity("Prova city")
@@ -72,6 +74,7 @@ public class U4S5L5WeeklyProjectApplicationTests {
 
 	@Test
 	public void deleteBooking() {
+
 		Building building = Building.builder()
 				.withBuildingName("Prova building name")
 				.withCity("Prova city")
@@ -114,6 +117,7 @@ public class U4S5L5WeeklyProjectApplicationTests {
 
 	@Test
 	public void testFindWorkStationsByWorkStationTypeAndCity() {
+
 		Building building = Building.builder()
 				.withBuildingName("Prova building name")
 				.withCity("Prova city")
@@ -136,10 +140,4 @@ public class U4S5L5WeeklyProjectApplicationTests {
 
 		assertFalse(foundWorkStations.isEmpty());
 	}
-
-	// bookingRepository.findByWorkStationAndBookingDate(booking.getWorkStation(), booking.getBookingDate())
-	// bookingRepository.findByUserAndBookingDate(booking.getUser(), booking.getBookingDate());
-
-
-
 }
