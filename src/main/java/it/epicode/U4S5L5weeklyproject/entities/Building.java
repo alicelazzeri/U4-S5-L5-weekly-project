@@ -26,7 +26,7 @@ public class Building {
     @Column
     private String buildingAddress;
     @Column
-    private String City;
+    private String city;
 
     @OneToMany (mappedBy = "building")
     private List<WorkStation> workStations = new ArrayList<>();

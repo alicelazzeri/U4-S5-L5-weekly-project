@@ -37,7 +37,7 @@ public class WorkStation {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany (mappedBy = "work_station")
+    @OneToMany (mappedBy = "workStation")
     private List<Booking> bookings = new ArrayList<>();
 
 
