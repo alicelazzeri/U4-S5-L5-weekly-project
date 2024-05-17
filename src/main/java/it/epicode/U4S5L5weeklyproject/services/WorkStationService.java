@@ -1,5 +1,6 @@
 package it.epicode.U4S5L5weeklyproject.services;
 
+import it.epicode.U4S5L5weeklyproject.entities.enums.WorkStationType;
 import it.epicode.U4S5L5weeklyproject.exceptions.WorkStationNotFoundException;
 import it.epicode.U4S5L5weeklyproject.entities.WorkStation;
 import it.epicode.U4S5L5weeklyproject.repositories.WorkStationRepository;
@@ -27,5 +28,9 @@ public class WorkStationService {
 
     public void deleteWorkStation(long id) {
         workStationRepository.deleteById(id);
+    }
+
+    public List<WorkStation> findWorkStationsByWorkStationTypeAndCity(WorkStationType workStationType, String city) {
+        return workStationRepository.findByWorkStationTypeAndCity(workStationType, city);
     }
 }

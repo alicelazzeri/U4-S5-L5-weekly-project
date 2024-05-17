@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table (name = "work_stations")
 @Data
@@ -33,6 +36,9 @@ public class WorkStation {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany (mappedBy = "work_station")
+    private List<Booking> bookings = new ArrayList<>();
 
 
 }

@@ -6,28 +6,28 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
-@Table (name = "users")
+@Table (name = "bookings")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder (setterPrefix = "with")
 
-public class User {
+public class Booking {
     @Id
-    private String username;
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private long id;
 
     @Column
-    private String fullName;
-    @Column
-    private String userEmail;
+    private LocalDate bookingDate;
 
-    @OneToOne (mappedBy = "user")
+    @ManyToOne
+    @JoinColumn (name = "work_station_id")
     private WorkStation workStation;
 
-    @OneToMany (mappedBy = "user")
-    private List<Booking> bookings = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
 }
