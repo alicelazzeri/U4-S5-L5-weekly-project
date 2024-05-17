@@ -15,6 +15,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Component
 @Slf4j
@@ -143,6 +144,16 @@ public class BookingManagementRunner implements CommandLineRunner {
         bookingService.saveBooking(booking2);
         bookingService.saveBooking(booking3);
 
+        log.info("Deleting some instances from Building, WorkStation, User and Booking:");
+
+//        List<WorkStation> workStationsToDelete = workStationService.findWorkStationByBuilding(building2);
+//        for (WorkStation workStation : workStationsToDelete) {
+//            workStationService.deleteWorkStation(workStation.getId());
+//        }
+//        buildingService.deleteBuilding(building2.getId());
+//
+//        bookingService.deleteBooking(booking3.getId());
+//        userService.deleteUser("alice_lazzeri");
 
     }
 }

@@ -1,5 +1,6 @@
 package it.epicode.U4S5L5weeklyproject.services;
 
+import it.epicode.U4S5L5weeklyproject.entities.Building;
 import it.epicode.U4S5L5weeklyproject.entities.enums.WorkStationType;
 import it.epicode.U4S5L5weeklyproject.exceptions.WorkStationNotFoundException;
 import it.epicode.U4S5L5weeklyproject.entities.WorkStation;
@@ -32,5 +33,9 @@ public class WorkStationService {
 
     public List<WorkStation> findWorkStationsByWorkStationTypeAndCity(WorkStationType workStationType, String city) {
         return workStationRepository.findByWorkStationTypeAndCity(workStationType, city);
+    }
+
+    public List<WorkStation> findWorkStationByBuilding(Building building) {
+        return workStationRepository.findByBuilding(building);
     }
 }
